@@ -2,12 +2,6 @@
 
 **Your Personalized AWS Certification Prep Coach – Powered by Autonomous Agentic AI**
 
-![GitHub Repo stars](https://img.shields.io/github/stars/atharva9699/AWS_Elevate?style=social)  
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)  
-![AWS Certified](https://img.shields.io/badge/AWS-Certification_Success-orange?logo=amazonaws)  
-![License](https://img.shields.io/badge/license-MIT-blue)  
-![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)  
-
 ---
 
 ## 🌟 **Overview**
