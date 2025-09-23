@@ -2,6 +2,12 @@
 
 **Your Personalized AWS Certification Prep Coach – Powered by Autonomous Agentic AI**
 
+![GitHub Repo stars](https://img.shields.io/github/stars/atharva9699/AWS_Elevate?style=social)  
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)  
+![AWS Certified](https://img.shields.io/badge/AWS-Certification_Success-orange?logo=amazonaws)  
+![License](https://img.shields.io/badge/license-MIT-blue)  
+![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen)  
+
 ---
 
 ## 🌟 **Overview**
@@ -37,20 +43,3 @@ flowchart TD
     C --> D[⚡ Adaptive Learning Plan]
     D --> E[📊 Track Progress in Dashboard]
     E --> F[🏆 Certification Success 🎉]
-
-
-
-
-
-
-
-
-## 🙏 **Thank You**
-
-Thank you for exploring **AWS_Elevate**!  
-We hope this tool inspires and empowers your AWS certification journey.  
-
-Feel free to **connect, contribute, and share feedback** — together, we can build a stronger AWS-skilled community!  
-
-✨ Happy Learning and Certification Success! 🚀
-
