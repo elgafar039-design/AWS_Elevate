@@ -223,3 +223,6 @@ This agent can ask these questions **to the user**:
   - Highlight how this topic appears in exam questions
   - Share common question patterns
   - Explain answer elimination strategies for this topic
+----
+
+<img width="2880" height="1730" alt="image" src="https://github.com/user-attachments/assets/57956e07-71c0-4245-bcd7-cd806587ff4c" />
