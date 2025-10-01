@@ -98,3 +98,128 @@ This agent can ask these questions **to the user**:
 - The Solution Architect Professional exam will have scenario based questions. The options will usually be very similar to each other. You will need to know the differences between various services very well to be able to select the correct answer.
 
 ---
+
+#  Teacher/Private Tutor Agent
+
+### Purpose
+- This agent will provide personalized, focused lessons on specific topics, domains, or weak areas identified during knowledge assessment. Offer interactive learning with explanations, examples, hands-on scenarios, and practice questions.
+
+### Sample Requests
+
+This agent should handle these questions **from the user**:
+- Teach me about IAM policies
+- I don't understand the difference between Security Groups and NACLs
+- I'm confused about S3 storage classes
+- Walk me through a multi-region architecture design
+- What's the best way to secure an RDS database?
+
+### Sample Questions
+
+This agent can ask these questions **to the user**:
+
+- Which topic would you like to focus on today?
+- Would you like a high-level overview first or dive straight into details?
+- Would you like me to explain using a real-world use case?
+- Does this make sense so far, or should I clarify anything?
+- Would you like to try a practice question on this topic?
+
+
+## Attributes
+
+#### Required Context
+
+- Target Certification
+- Specific Topic/Domain to Cover
+- User's Role/Experience Level
+- Learning Style Preference
+
+#### Session Attributes
+
+- Topics Covered in Session
+- Practice Questions Attempted
+- Misconceptions Corrected
+- Session Duration
+- Follow-up Topics Identified
+
+
+### Tools, DB etc
+
+##### DynamoDB Tables:
+
+- CertificationSyllabus: To understand topic context within exam syllabus
+- UserKnowledgeProfile: To check weak areas and previous assessment results
+- LearningMaterials: Contains curated explanations, diagrams, use cases for each topic
+- TutoringHistory: Tracks all tutoring sessions, topics covered, user comprehension signals
+- UserProfile: For personalization (role, experience level)
+
+#### S3 Vector is available
+
+#### Lambda Functions:
+
+- GenerateLesson: Creates structured lesson plan for a topic
+- FetchExamples: Retrieves relevant real-world examples and scenarios
+- GeneratePracticeQuestion: Creates contextual practice questions
+- AssessComprehension: Analyzes user responses to gauge understanding
+- RecommendNextTopic: Suggests related topics to study next
+
+### Overall Implementation
+
+#### Phase 1: Topic Selection & Contextualization
+
+- Check if user arrived from Knowledge Checker Agent with specific weak topics
+- If not, ask user what they want to learn
+- Retrieve topic details from CertificationSyllabus
+- Check UserKnowledgeProfile for any previous struggles with this topic
+- Check TutoringHistory to avoid repeating the same explanations
+- Personalize approach based on UserProfile.role and experience level
+
+#### Phase 2: Lesson Planning
+
+- Invoke GenerateLesson Lambda with:
+
+   - Topic name and syllabus context
+   - User's role and experience level
+   - Learning style preference (if known)
+   - Related topics from previous sessions
+
+
+- Create structured lesson outline:
+
+  - What: Definition and core concepts
+  - Why: Use cases and importance for exam
+  - How: Configuration, implementation details
+  - When: Decision criteria for using this service/feature
+  - Gotchas: Common mistakes and exam traps
+
+
+
+#### Phase 3: Interactive Teaching
+
+- Explain Core Concepts:
+
+  - Start with simple explanation
+  - Build up to complex details
+  - Use analogies related to user's domain when possible
+
+
+- Provide Examples:
+
+  - Invoke FetchExamples to get real-world scenarios
+  - Show architecture diagrams from S3 (return as image references)
+  - Walk through step-by-step implementations
+  - Compare with alternative approaches
+
+
+##### Interactive Elements:
+
+  - Ask comprehension check questions
+  - Present "What would you do?" scenarios
+  - Encourage user to ask questions
+  - Correct misconceptions immediately with detailed explanations
+
+
+#### Relate to Exam:
+
+  - Highlight how this topic appears in exam questions
+  - Share common question patterns
+  - Explain answer elimination strategies for this topic
